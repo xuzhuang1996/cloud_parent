@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/xuzhuang1996/MyJava/
+          searchPaths: version
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
