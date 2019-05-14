@@ -14,12 +14,12 @@
              <groupId>org.springframework.cloud</groupId>
              <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
          </dependency>
-4. pom文件需要注意，夫文件有spring-cloud.version，子文件绝对不能有：
+4. pom文件需要注意，夫文件有spring-cloud.version，子文件会覆盖：
 
         <properties>
             <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
         </properties>
-5. 把原有的application.properties删掉。然后一定要执行一下  maven -X clean install
+5. 把原有的application.properties删掉。只能存在一个
 6. 后台传数据没问题，也return了products，但是前台就是显示不出。原因：static跟templates都有products.html，而配置文件写的是templates，即使这样还是删除static下的文件后才能访问。
 7. 配置服务器问题：https://blog.csdn.net/u013233360/article/details/86666279 另外，直接访问服务器时 http://localhost:8030/{}/dev，中应该填product-view-service-feign也就是application也算是文件名字。
 
