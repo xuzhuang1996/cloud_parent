@@ -3,11 +3,11 @@ spring:
     name: config-server
   cloud:
     config:
-      label: master
       server:
         git:
-          uri: https://github.com/xuzhuang1996/MyJava/
-          searchPaths: version
+          uri: https://github.com/xuzhuang1996/MyJava.git
+          searchPaths: product-view-service-feign-dev  # searchPaths 表示目录：
+      label: master # label 表示 分支：
 eureka:
   client:
     serviceUrl:

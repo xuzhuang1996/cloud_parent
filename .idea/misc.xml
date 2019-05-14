@@ -12,6 +12,9 @@
         <option value="$PROJECT_DIR$/product-view-service-ribbon/pom.xml" />
         <option value="$PROJECT_DIR$/product-data-service/pom.xml" />
         <option value="$PROJECT_DIR$/config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/hystrix-dashboard/pom.xml" />
+        <option value="$PROJECT_DIR$/turbine/pom.xml" />
+        <option value="$PROJECT_DIR$/zuul/pom.xml" />
       </list>
     </option>
   </component>
