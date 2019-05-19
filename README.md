@@ -35,3 +35,16 @@
 4. 断路监控器，本身需要监控器不断访问数据服务才能监控。解决：数据服务什么时候可用，什么时候不可用，如何监控这个事情呢。在`http://localhost:8020/hystrix`输入`http://localhost:8012/actuator/hystrix.stream`
 5. 为了方便监控集群里的多个实例，springCloud 提供了一个 turbine 项目，它的作用是把一个集群里的多个实例汇聚在一个 turbine里，这个然后再在 断路器监控里查看这个 turbine, 这样就能够在集群层面进行监控啦。输入`http://localhost:8021/turbine.stream`.其中有一个问题：https://blog.csdn.net/Jack__iT/article/details/84073207
 6. 网关：一个微服务会有多个实例，即多个端口号、放在不同IP主机上，为此，应该是做一个，记住网关的地址和端口号就行了。比如数据服务，一次性开3个，会自动进行负载均衡。但前提是访问过新加的服务后，才能感受到他的存在。
+
+
+## 消息队列rabbitmq
+1. 概念：
+   - server：broker，接受客户端连接、实现AMQP实体服务
+   - connection：连接，应用程序与broker的网络连接
+   - channel：网络通道。是消息读写的通道，客户端可以建立多个channel，每个channel代表一个会话任务。
+   - message：消息。服务器与应用程序之间传送的数据。由properties与body组成，properties对消息修饰，如消息优先级等，body则是消息体的内容。
+   - virtual host：虚拟地址，应用于逻辑隔离，一般用于隔离不同的项目。一个virtual host里可以有一些Exchange与Queue，同一个virtual host不能有相同名称的exchange或queue。
+   - exchange：交换机，接受消息，根据路由键转发消息-到-绑定的队列。
+   - binding：exchange与queue之间的虚拟连接，binding可以包含routing key。
+   - routing key：一个路由规则，虚拟机可以用它来确定如何路由一个特定消息
+   - queue：消息队列，保存消息并转发给消费者。
