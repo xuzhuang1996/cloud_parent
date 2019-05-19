@@ -48,3 +48,4 @@
    - binding：exchange与queue之间的虚拟连接，binding可以包含routing key。
    - routing key：一个路由规则，虚拟机可以用它来确定如何路由一个特定消息
    - queue：消息队列，保存消息并转发给消费者。
+2. 为了确保消息永不丢失，RabbitMQ支持 消息确认。消费者发回ack（nowledgement）告诉RabbitMQ已收到，处理了特定消息，RabbitMQ可以自由删除它。如果消费者死亡（其通道关闭，连接关闭或TCP连接丢失）而不发送确认，RabbitMQ将理解消息未完全处理并将重新排队。如果同时有其他在线消费者，则会迅速将其重新发送给其他消费者。这样你就可以确保没有消息丢失，即使工人偶尔会死亡。
